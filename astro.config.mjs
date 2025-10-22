@@ -7,5 +7,7 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
-  }
+  },
+  site: 'https://astronaut.github.io',
+  base: '/civics-1.10-unit-1-assessment',
 });
