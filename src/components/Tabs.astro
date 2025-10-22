@@ -1,0 +1,84 @@
+---
+interface Props {
+  set: string;
+  tabs: Record<string, string>;
+}
+
+const { set, tabs } = Astro.props;
+---
+
+<div class="border border-white/50 rounded-lg p-4">
+  <div class="flex gap-2 mb-4">
+    {
+      Object.entries(tabs).map((tab) => {
+        if (Object.keys(tabs)[0] === tab[0]) {
+          return (
+            <button class="tab active" data-tab-set={set} data-tab-id={tab[0]}>
+              {tab[1]}
+            </button>
+          );
+        } else {
+          return (
+            <button class="tab" data-tab-set={set} data-tab-id={tab[0]}>
+              {tab[1]}
+            </button>
+          );
+        }
+      })
+    }
+  </div>
+  <div>
+    {
+      Object.entries(tabs).map(async (tab) => {
+        if (Astro.slots.has(tab[0])) {
+          const slotContent = await Astro.slots.render(tab[0]);
+
+          if (Object.keys(tabs)[0] === tab[0]) {
+            return (
+              <div data-tab-set={set} data-tab-id={tab[0]}>
+                <Fragment set:html={slotContent} />
+              </div>
+            );
+          } else {
+            return (
+              <div class="hidden" data-tab-set={set} data-tab-id={tab[0]}>
+                <Fragment set:html={slotContent} />
+              </div>
+            );
+          }
+        }
+      })
+    }
+  </div>
+</div>
+
+<script is:inline define:vars={{ set }}>
+  const buttons = document.querySelectorAll(`.tab[data-tab-set="${set}"]`);
+  const containers = document.querySelectorAll(`div[data-tab-set="${set}"]`);
+
+  for (const button of buttons) {
+    button.addEventListener("click", function () {
+      const i = button.getAttribute("data-tab-id");
+
+      for (const x of buttons) {
+        if (x.getAttribute("data-tab-id") === i) {
+          x.classList.add("active");
+        } else {
+          x.classList.remove("active");
+        }
+      }
+
+      for (const x of containers) {
+        if (x.getAttribute("data-tab-id") === i) {
+          x.classList.remove("hidden");
+        } else {
+          x.classList.add("hidden");
+        }
+      }
+    });
+  }
+
+  console.log(buttons);
+  console.log(containers);
+  console.log(set);
+</script>

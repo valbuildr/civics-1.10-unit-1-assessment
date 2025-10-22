@@ -1,6 +1,54 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 @import "tailwindcss";
 
 @theme {
-    --font-sans: Inter, Arial, Helvetica, sans-serif;
+  --font-sans: Inter, Arial, Helvetica, ui-sans-serif, system-ui, sans-serif;
+
+  --color-one: #b700ff;
+  --color-two: #ff006f;
+}
+
+:root {
+  background-color: #2c2c2c;
+  color: white;
+}
+
+.text-gradent-to-t {
+  @apply bg-gradient-to-t text-transparent bg-clip-text w-fit;
+}
+
+.text-gradent-to-tr {
+  @apply bg-gradient-to-tr text-transparent bg-clip-text w-fit;
+}
+
+.text-gradent-to-r {
+  @apply bg-gradient-to-r text-transparent bg-clip-text w-fit;
+}
+
+.text-gradent-to-br {
+  @apply bg-gradient-to-br text-transparent bg-clip-text w-fit;
+}
+
+.text-gradent-to-b {
+  @apply bg-gradient-to-b text-transparent bg-clip-text w-fit;
+}
+
+.text-gradent-to-bl {
+  @apply bg-gradient-to-bl text-transparent bg-clip-text w-fit;
+}
+
+.text-gradent-to-l {
+  @apply bg-gradient-to-l text-transparent bg-clip-text w-fit;
+}
+
+.text-gradent-to-tl {
+  @apply bg-gradient-to-tl text-transparent bg-clip-text w-fit;
+}
+
+.tab {
+  @apply text-center border w-fit py-1.5 px-2 rounded-lg cursor-pointer;
+}
+
+.tab.active {
+  @apply bg-white text-black font-bold;
 }

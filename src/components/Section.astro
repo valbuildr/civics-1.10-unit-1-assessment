@@ -1,0 +1,22 @@
+---
+const { id, title, badge } = Astro.props;
+---
+
+<div id={id}>
+  <div class="flex justify-between items-center">
+    <h2
+      class="text-4xl font-bold text-gradent-to-r from-purple-500 to-pink-500 mb-2"
+    >
+      <img
+        src={`/badges/${badge}.png`}
+        class="aspect-square h-10 inline-block"
+      />
+      {title}
+    </h2>
+    <p class="text-white/50 hover:text-white">
+      <a class="hover:underline" href="#top">Jump to top</a>
+    </p>
+  </div>
+  
+  <slot />
+</div>

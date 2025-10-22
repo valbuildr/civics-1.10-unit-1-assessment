@@ -1,16 +1,802 @@
 ---
-
+import MainLayout from "../layouts/MainLayout.astro";
+import Tabs from "../components/Tabs.astro";
+import Section from "../components/Section.astro";
+import Reps from "../components/Reps.astro";
+import Senators from "../components/Senators.astro";
+import CnB from "../components/CnB.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<MainLayout>
+  <h1 class="text-7xl font-bold text-gradent-to-r from-purple-500 to-pink-500">
+    1.10 Unit 1 Assessment
+  </h1>
+
+  <hr class="my-4 border-dotted border-white/50" />
+
+  <div id="downloads">
+    <div class="flex justify-between items-center">
+      <h2
+        class="text-4xl font-bold text-gradent-to-r from-purple-500 to-pink-500 mb-2"
+      >
+        Downloads
+      </h2>
+      <p class="text-white/50 hover:text-white">
+        <a href="hover:underline" href="#top">Jump to top</a>
+      </p>
+    </div>
+
+    <ul class="list-inside list-disc">
+      <li>
+        <a
+          href="/downloads/1.10-unit-1-assessment.pdf"
+          class="text-blue-400 hover:underline">As PDF</a
+        >
+      </li>
+      <li>
+        <a
+          href="/downloads/1.10-unit-1-assessment-pngs.zip"
+          download
+          class="text-blue-400 hover:underline">As PNGs (images)</a
+        >
+      </li>
+      <li>
+        <a
+          href="/downloads/1.10-unit-1-assessment.pptx"
+          download
+          class="text-blue-400 hover:underline">As PPTX (powerpoint)</a
+        >
+      </li>
+    </ul>
+  </div>
+
+  <hr class="my-4 border-dotted border-white/50" />
+
+  <div id="contents">
+    <div class="flex justify-between items-center">
+      <h2
+        class="text-4xl font-bold text-gradent-to-r from-purple-500 to-pink-500 mb-2"
+      >
+        Contents
+      </h2>
+      <p class="text-white/50 hover:text-white">
+        <a href="hover:underline" href="#top">Jump to top</a>
+      </p>
+    </div>
+
+    <ul class="list-inside list-disc">
+      <li>
+        <a
+          href="#the-branches-of-government"
+          class="text-blue-400 hover:underline"
+          ><img
+            src="/badges/the-branches-of-government.png"
+            class="aspect-square h-6 inline-block"
+          /> The Branches of Government</a
+        >
+      </li>
+      <li>
+        <a href="#the-houses-of-congress" class="text-blue-400 hover:underline"
+          ><img
+            src="/badges/the-houses-of-congress.png"
+            class="aspect-square h-6 inline-block"
+          /> The Houses of Congress</a
+        >
+      </li>
+      <li>
+        <a href="#how-an-idea-becomes-law" class="text-blue-400 hover:underline"
+          ><img
+            src="/badges/how-an-idea-becomes-law.png"
+            class="aspect-square h-6 inline-block"
+          /> How an idea becomes law</a
+        >
+      </li>
+      <li>
+        <a
+          href="#becoming-a-supreme-court-justice"
+          class="text-blue-400 hover:underline"
+          ><img
+            src="/badges/becoming-a-supreme-court-justice.png"
+            class="aspect-square h-6 inline-block"
+          /> Becoming a Supreme Court Justice</a
+        >
+      </li>
+      <li>
+        <a href="#checks-and-balances" class="text-blue-400 hover:underline"
+          ><img
+            src="/badges/checks-and-balances.png"
+            class="aspect-square h-6 inline-block"
+          /> Checks & Balances</a
+        >
+      </li>
+      <li>
+        <a href="#the-bill-of-rights" class="text-blue-400 hover:underline"
+          ><img
+            src="/badges/the-bill-of-rights.png"
+            class="aspect-square h-6 inline-block"
+          /> The Bill of Rights</a
+        >
+      </li>
+      <li>
+        <a href="#amendments" class="text-blue-400 hover:underline"
+          ><img
+            src="/badges/amendments.png"
+            class="aspect-square h-6 inline-block"
+          /> Amendments</a
+        >
+      </li>
+      <li>
+        <a href="#the-constitution" class="text-blue-400 hover:underline"
+          ><img
+            src="/badges/the-constitution.png"
+            class="aspect-square h-6 inline-block"
+          /> The Constitution</a
+        >
+      </li>
+    </ul>
+  </div>
+
+  <hr class="my-4 border-dotted border-white/50" />
+
+  <Section
+    id="the-branches-of-government"
+    title="The Branches of Government"
+    badge="the-branches-of-government"
+  >
+    <Tabs
+      set="branches"
+      tabs={{
+        legislative: "Legislative",
+        executive: "Executive",
+        judicial: "Judicial",
+      }}
+    >
+      <div slot="legislative">
+        <p><span class="font-semibold">Main Duty:</span> Write and Pass Laws</p>
+        <p>
+          <span class="font-semibold">People/Positions:</span> Representatives and
+          Senators
+        </p>
+
+        <div class="mt-4 grid grid-cols-2 gap-2">
+          <Reps />
+          <Senators />
+        </div>
+      </div>
+      <div slot="executive">
+        <p>
+          <span class="font-semibold">Main Duty:</span> Sign bills into law or veto
+          bills
+        </p>
+        <p>
+          <span class="font-semibold">People/Positions:</span> President, Vice President,
+          and Cabinet Members
+        </p>
+
+        <div class="mt-4 grid grid-cols-2 gap-2">
+          <div
+            class="bg-[url(/headshots/DonaldTrump.jpg)] bg-cover bg-center content-end h-98 rounded-lg"
+          >
+            <div
+              class="rounded-lg h-full w-full bg-gradient-to-b from-red-700/0 to-red-700/75 p-3 content-end"
+            >
+              <h4 class="text-3xl font-bold">Donald Trump</h4>
+              <p class="text-xl">Republican (since 2025)</p>
+            </div>
+          </div>
+          <div
+            class="bg-[url(/headshots/JDVance.jpg)] bg-cover bg-top content-end h-98 rounded-lg"
+          >
+            <div
+              class="rounded-lg h-full w-full bg-gradient-to-b from-red-700/0 to-red-700/75 p-3 content-end"
+            >
+              <h4 class="text-3xl font-bold">JD Vance</h4>
+              <p class="text-xl">Republican (since 2025)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div slot="judicial">
+        <p>
+          <span class="font-semibold">Main Duty:</span> Interpret laws & rule them
+          constitutional or not
+        </p>
+        <p><span class="font-semibold">People/Positions:</span> Justice</p>
+
+        <div class="mt-4 grid grid-cols-3 gap-2">
+          <div
+            class="bg-white text-black flex justify-between items-center rounded-lg"
+          >
+            <div class="p-3">
+              <p class="font-bold text-2xl">John Roberts</p>
+              <p class="text-lg">since 2005</p>
+            </div>
+            <img src="/headshots/JohnRoberts.jpg" class="h-24 rounded-r-lg" />
+          </div>
+          <div
+            class="bg-white text-black flex justify-between items-center rounded-lg"
+          >
+            <div class="p-3">
+              <p class="font-bold text-2xl">Clarence Thomas</p>
+              <p class="text-lg">since 1991</p>
+            </div>
+            <img
+              src="/headshots/ClarenceThomas.jpg"
+              class="h-24 rounded-r-lg"
+            />
+          </div>
+          <div
+            class="bg-white text-black flex justify-between items-center rounded-lg"
+          >
+            <div class="p-3">
+              <p class="font-bold text-2xl">Samuel Alito</p>
+              <p class="text-lg">since 2006</p>
+            </div>
+            <img src="/headshots/SamuelAlito.jpg" class="h-24 rounded-r-lg" />
+          </div>
+          <div
+            class="bg-white text-black flex justify-between items-center rounded-lg"
+          >
+            <div class="p-3">
+              <p class="font-bold text-2xl">Sonia Sotomayor</p>
+              <p class="text-lg">since 2009</p>
+            </div>
+            <img
+              src="/headshots/SoniaSotomayor.jpg"
+              class="h-24 rounded-r-lg"
+            />
+          </div>
+          <div
+            class="bg-white text-black flex justify-between items-center rounded-lg"
+          >
+            <div class="p-3">
+              <p class="font-bold text-2xl">Elena Kagan</p>
+              <p class="text-lg">since 2010</p>
+            </div>
+            <img src="/headshots/ElenaKagan.jpg" class="h-24 rounded-r-lg" />
+          </div>
+          <div
+            class="bg-white text-black flex justify-between items-center rounded-lg"
+          >
+            <div class="p-3">
+              <p class="font-bold text-2xl">Neil Gorsuch</p>
+              <p class="text-lg">since 2017</p>
+            </div>
+            <img src="/headshots/NeilGorsuch.jpg" class="h-24 rounded-r-lg" />
+          </div>
+          <div
+            class="bg-white text-black flex justify-between items-center rounded-lg"
+          >
+            <div class="p-3">
+              <p class="font-bold text-2xl">Brett Kavanaugh</p>
+              <p class="text-lg">since 2018</p>
+            </div>
+            <img
+              src="/headshots/BrettKavanaugh.jpg"
+              class="h-24 rounded-r-lg"
+            />
+          </div>
+          <div
+            class="bg-white text-black flex justify-between items-center rounded-lg"
+          >
+            <div class="p-3">
+              <p class="font-bold text-2xl">Amy Coney Barrett</p>
+              <p class="text-lg">since 2020</p>
+            </div>
+            <img
+              src="/headshots/AmyConeyBarrett.jpg"
+              class="h-24 rounded-r-lg"
+            />
+          </div>
+          <div
+            class="bg-white text-black flex justify-between items-center rounded-lg"
+          >
+            <div class="p-3">
+              <p class="font-bold text-2xl">Ketanji Brown Jackson</p>
+              <p class="text-lg">since 2022</p>
+            </div>
+            <img
+              src="/headshots/KetanjiBrownJackson.jpg"
+              class="h-24 rounded-r-lg"
+            />
+          </div>
+        </div>
+      </div>
+    </Tabs>
+  </Section>
+
+  <hr class="my-4 border-dotted border-white/50" />
+
+  <Section
+    id="the-houses-of-congress"
+    title="The Houses of Congress"
+    badge="the-houses-of-congress"
+  >
+    <Tabs
+      set="congress"
+      tabs={{ hor: "House of Representatives", senate: "Senate" }}
+    >
+      <div slot="hor">
+        <p>
+          <span class="font-semibold">How Members are Selected:</span> Democratically
+          in elections, districts based on state populations
+        </p>
+        <p>
+          <span class="font-semibold">Number of Members:</span> 435 Representatives
+          (219 Republican, 213 Democrat, 3 Vacant*)
+        </p>
+        <p>
+          <span class="font-semibold">Key powers:</span> Must start all revenue bills
+        </p>
+
+        <div class="mt-4 grid grid-cols-2 gap-2">
+          <Reps />
+        </div>
+
+        <p class="italic text-sm mt-4">
+          *1 representative, Adelita Grijalva (D-AZ-7) has yet to be sworn in.
+          Seat considered Vacant.
+        </p>
+        <p class="italic text-sm">
+          Representative count sourced from Wikipedia: <a
+            href="https://en.wikipedia.org/wiki/United_States_House_of_Representatives"
+            class="hover:underline"
+            >https://en.wikipedia.org/wiki/United_States_House_of_Representatives</a
+          >
+        </p>
+      </div>
+      <div slot="senate">
+        <p>
+          <span class="font-semibold">How Members are Selected:</span> Democratically
+          in elections, 2 per state
+        </p>
+        <p>
+          <span class="font-semibold">Number of Members:</span> 100 Senators (53
+          Republican, 45 Democrat, 2 Independent*)
+        </p>
+        <p>
+          <span class="font-semibold">Key powers:</span> Acts as jury in impeachment
+          trials (2/3 vote needed)
+        </p>
+
+        <div class="mt-4 grid grid-cols-2 gap-2">
+          <Senators />
+        </div>
+
+        <p class="italic text-sm mt-4">
+          *2 Independent Senators, Angus King of Maine and Bernie Sanders of
+          Vermont caucus with the Democrats.
+        </p>
+        <p class="italic text-sm">
+          Senator count sourced from Wikipedia: <a
+            href="https://en.wikipedia.org/wiki/United_States_Senate"
+            class="hover:underline"
+            >https://en.wikipedia.org/wiki/United_States_Senate</a
+          >
+        </p>
+      </div>
+    </Tabs>
+  </Section>
+
+  <hr class="my-4 border-dotted border-white/50" />
+
+  <Section
+    id="how-an-idea-becomes-law"
+    title="How an idea becomes law"
+    badge="how-an-idea-becomes-law"
+  >
+    <div class="flex gap-1 mb-1">
+      <div>
+        <p class="test-right text-xs italic">START</p>
+        <img src="/icons/rarr.svg" class="w-12" />
+      </div>
+      <div>
+        <div class="bg-white rounded-xl py-2 px-4 text-black w-fit">
+          <p class="text-black/50 font-medium">House of Representatives</p>
+          <p class="text-xl font-medium">Begins in a Committee</p>
+        </div>
+
+        <img src="/icons/darr.svg" class="h-8 ml-2 mb-1" />
+        <div class="flex gap-1">
+          <div class="bg-white rounded-xl py-2 px-4 text-black w-fit">
+            <p class="text-black/50 font-medium">House of Representatives</p>
+            <p class="text-xl font-medium">Debated and Amended</p>
+          </div>
+          <div
+            class="rounded-full bg-white flex gap-2 h-fit items-center text-black font-semibold pr-5"
+          >
+            <div
+              class="h-fit bg-gradient-to-b from-purple-500 to-pink-500 p-1 rounded-full"
+            >
+              <div
+                class="flex h-fit items-center justify-center bg-black p-3 rounded-full"
+              >
+                <img src="/icons/warning.svg" class="aspect-square h-6" />
+              </div>
+            </div>
+
+            <p class="h-fit">The bill can<br />fail to pass.</p>
+          </div>
+        </div>
+
+        <img src="/icons/darr.svg" class="h-8 ml-2 mb-1" />
+        <div class="bg-white rounded-xl py-2 px-4 text-black w-fit">
+          <p class="text-black/50 font-medium">House of Representatives</p>
+          <p class="text-xl font-medium">
+            Congressional Budget Office confirms budget
+          </p>
+        </div>
+
+        <img src="/icons/darr.svg" class="h-8 ml-2 mb-1" />
+      </div>
+    </div>
+
+    <div class="flex gap-1">
+      <div>
+        <p class="test-right text-xs italic" id="ideatolaw-note1-ref1">
+          START<a href="#ideatolaw-note1" class="hover:underline">*</a>
+        </p>
+        <img src="/icons/rarr.svg" class="w-12" />
+      </div>
+      <div>
+        <div class="bg-white rounded-xl py-2 px-4 text-black w-fit">
+          <p class="text-black/50 font-medium">Senate</p>
+          <p class="text-xl font-medium">Committee meets about the bill</p>
+        </div>
+
+        <img src="/icons/darr.svg" class="h-8 ml-2 mb-1" />
+        <div class="flex gap-1">
+          <div class="bg-white rounded-xl py-2 px-4 text-black w-fit">
+            <p class="text-black/50 font-medium">Senate</p>
+            <p class="text-xl font-medium">Debated and Amended</p>
+          </div>
+          <div
+            class="rounded-full bg-white flex gap-2 h-fit items-center text-black font-semibold pr-5"
+          >
+            <div
+              class="h-fit bg-gradient-to-b from-purple-500 to-pink-500 p-1 rounded-full"
+            >
+              <div
+                class="flex h-fit items-center justify-center bg-black p-3 rounded-full"
+              >
+                <img src="/icons/warning.svg" class="aspect-square h-6" />
+              </div>
+            </div>
+
+            <p class="h-fit">The bill can<br />fail to pass.</p>
+          </div>
+        </div>
+
+        <div class="flex mb-1">
+          <img src="/icons/darr.svg" class="h-8 ml-2" />
+          <p id="ideatolaw-note2-ref1">
+            <a href="#ideatolaw-note2" class="hover:underline">**</a>
+          </p>
+        </div>
+        <div class="flex gap-1">
+          <div class="bg-white rounded-xl py-2 px-4 text-black w-fit">
+            <p class="text-black/50 font-medium">The President</p>
+            <p class="text-xl font-medium">Final Approval</p>
+          </div>
+          <div
+            class="rounded-full bg-white flex gap-2 h-fit items-center text-black font-semibold pr-5"
+          >
+            <div
+              class="h-fit bg-gradient-to-b from-purple-500 to-pink-500 p-1 rounded-full"
+            >
+              <div
+                class="flex h-fit items-center justify-center bg-black p-3 rounded-full"
+              >
+                <img src="/icons/warning.svg" class="aspect-square h-6" />
+              </div>
+            </div>
+
+            <p class="h-fit">The president<br />can veto a bill.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="italic text-sm mt-4" id="ideatolaw-note1">
+      <a href="#ideatolaw-note1-ref1" class="hover:underline">*</a>If a bill
+      starts in the Senate, it must go through the House of Representatives
+      before sent for final approval.
+    </p>
+    <p class="italic text-sm" id="ideatolaw-note2">
+      <a href="#ideatolaw-note2-ref1" class="hover:underline">**</a>If a bill is
+      amended in the Senate, it must be re-approved in the House of
+      Representatives before being sent for final approval.
+    </p>
+  </Section>
+
+  <hr class="my-4 border-dotted border-white/50" />
+
+  <Section
+    id="becoming-a-supreme-court-justice"
+    title="Becoming a Supreme Court Justice"
+    badge="becoming-a-supreme-court-justice"
+  >
+    <div class="bg-white rounded-xl py-2 px-4 text-black w-fit">
+      <p class="text-xl font-medium">Sitting Justice resigns or passes away</p>
+    </div>
+
+    <img src="/icons/darr.svg" class="h-8 ml-2 mb-1" />
+    <div class="bg-white rounded-xl py-2 px-4 text-black w-fit">
+      <p class="text-black/50 font-medium">Executive Branch (President)</p>
+      <p class="text-xl font-medium">Appoints a Nominee</p>
+    </div>
+
+    <img src="/icons/darr.svg" class="h-8 ml-2 mb-1" />
+    <div class="bg-white rounded-xl py-2 px-4 text-black w-fit">
+      <p class="text-black/50 font-medium">Legislative Branch (Senate)</p>
+      <p class="text-xl font-medium">Hold hearings with the nominee</p>
+    </div>
+
+    <img src="/icons/darr.svg" class="h-8 ml-2 mb-1" />
+    <div class="flex gap-1">
+      <div class="bg-white rounded-xl py-2 px-4 text-black w-fit">
+        <p class="text-black/50 font-medium">Legislative Branch (Senate)</p>
+        <p class="text-xl font-medium">
+          Vote to approve the nominee, simple majority needed
+        </p>
+      </div>
+      <div
+        class="rounded-full bg-white flex gap-2 h-fit items-center text-black font-semibold pr-5"
+      >
+        <div
+          class="h-fit bg-gradient-to-b from-purple-500 to-pink-500 p-1 rounded-full"
+        >
+          <div
+            class="flex h-fit items-center justify-center bg-black p-3 rounded-full"
+          >
+            <img src="/icons/warning.svg" class="aspect-square h-6" />
+          </div>
+        </div>
+        <p class="h-fit">The nominee could<br />fail to get confirmed</p>
+      </div>
+    </div>
+
+    <img src="/icons/darr.svg" class="h-8 ml-2 mb-1" />
+    <div class="bg-white rounded-xl py-2 px-4 text-black w-fit">
+      <p class="text-xl font-medium">Nominee is sworn in as Justice</p>
+    </div>
+  </Section>
+
+  <hr class="my-4 border-dotted border-white/50" />
+
+  <Section
+    id="checks-and-balances"
+    title="Checks & Balances"
+    badge="checks-and-balances"
+  >
+    <Tabs
+      set="checks"
+      tabs={{
+        legislative: "Legislative",
+        executive: "Executive",
+        judicial: "Judicial",
+      }}
+    >
+      <div slot="legislative">
+        <CnB
+          one={{
+            on: "executive",
+            icon: "account_circle_off",
+            action: "Can impeach the President",
+          }}
+          two={{
+            on: "judicial",
+            icon: "edit",
+            action: "Can initiate constitutional amendments",
+          }}
+        />
+      </div>
+      <div slot="executive">
+        <CnB
+          one={{
+            on: "legislative",
+            icon: "block",
+            action: "Can veto laws",
+          }}
+          two={{
+            on: "judicial",
+            icon: "account_box",
+            action: "Can nominate Supreme Court Justices",
+          }}
+        />
+      </div>
+      <div slot="judicial">
+        <CnB
+          one={{
+            on: "legislative",
+            icon: "gavel",
+            action: "Can rule laws unconstitutional",
+          }}
+          two={{
+            on: "executive",
+            icon: "gavel",
+            action: "Can rule actions unconstitutional",
+          }}
+        />
+      </div>
+    </Tabs>
+  </Section>
+
+  <hr class="my-4 border-dotted border-white/50" />
+
+  <Section
+    id="the-bill-of-rights"
+    title="The Bill of Rights"
+    badge="the-bill-of-rights"
+  >
+    <p class="mb-4">
+      Forming the first 10 amendments to the constitution, the Bill of Rights
+      includes basic rights for individuals and states.
+    </p>
+    <Tabs
+      set="bor"
+      tabs={{
+        one: "Article 1",
+        two: "Article 2",
+        three: "Article 3",
+        four: "Article 4",
+        five: "Article 5",
+        six: "Article 6",
+        seven: "Article 7",
+        eight: "Article 8",
+        nine: "Article 9",
+        ten: "Article 10",
+      }}
+    >
+      <div slot="one">
+        <p>
+          Congress can not make a law that favors any religion, prevents the
+          'free exercise' of any religion, limit speech, limit the press,
+          prevent peaceful assemblies to ask the government to change something.
+        </p>
+      </div>
+      <div slot="two">
+        <p>Congress can't prevent people from carrying or having weapons.</p>
+      </div>
+      <div slot="three">
+        <p>
+          Soldiers can not forcibly live in your house, except in times of war.
+          Even in times of war, congress will pass a law and set the rules.
+        </p>
+      </div>
+      <div slot="four">
+        <p>
+          No one can forcibly search you or your property without a judge's
+          approval or a good reason.
+        </p>
+      </div>
+      <div slot="five">
+        <p>
+          You can not be tried for any serious crime without a Grand Jury
+          meeting and agreeing that there is enough evidence against you; if you
+          are found innocent, the government can not try you again for the same
+          crime; you can not be forced to admit guilt; you can not be jailed,
+          fined, or killed unless found guilty by a jury, all proper legal steps
+          were taken during your arrest and trial; the government can not take
+          your property, or anything of yours, unless you are paid a fair
+          amount.
+        </p>
+      </div>
+      <div slot="six">
+        <p>
+          If arrested and charged: you have a right to a trial in public; your
+          trial to be decided by a jury, if wanted; you have the right to know
+          what you are accused of and to cross-examine, see, and hear those who
+          are witnesses against you; you have a right to a lawyer, if you can
+          not afford one, one will be appointed to you at no cost.
+        </p>
+      </div>
+      <div slot="seven">
+        <p>You can have a jury in a civil case if you wish.</p>
+      </div>
+      <div slot="eight">
+        <p>
+          The government can not make you pay an unreasonable amount in fines or
+          bail, and can not enact unusual or cruel punishments, even if found
+          guilty.
+        </p>
+      </div>
+      <div slot="nine">
+        <p>
+          Just because these rights are in the constitution, does not mean you
+          do not have other rights too.
+        </p>
+      </div>
+      <div slot="ten">
+        <p>
+          Anything not said in the constitution that congress can do, is the
+          duty of states and the people.
+        </p>
+      </div>
+    </Tabs>
+
+    <p class="italic text-sm mt-4">
+      Adapted from ACLU Delaware:
+      <a
+        href="https://www.aclu-de.org/en/know-your-rights/bill-rights-simple-language"
+        class="hover:underline"
+        >https://www.aclu-de.org/en/know-your-rights/bill-rights-simple-language</a
+      >
+    </p>
+  </Section>
+
+  <hr class="my-4 border-dotted border-white/50" />
+
+  <Section id="amendments" title="Amendments" badge="amendments">
+    <p>
+      Amendments are essentially just edits. They may address something that
+      wasn't addressed in the original text.
+    </p>
+    <p class="mt-4">
+      For example in Congress, you'll see bills get amended. This could be part
+      of a compromise between political parties to get the bill passed.
+    </p>
+    <p class="mt-4">
+      Also, you'll commonly hear about the constitution's amendments. The most
+      common amendments mentioned are the first (see <a
+        href="#the-bill-of-rights"
+        class="hover:underline">"The Bill of Rights"/Article 1</a
+      >) and second. (see <a href="#the-bill-of-rights" class="hover:underline"
+        >"The Bill of Rights"/Article 2</a
+      >)
+    </p>
+  </Section>
+
+  <hr class="my-4 border-dotted border-white/50" />
+
+  <Section
+    id="the-constitution"
+    title="The Constitution"
+    badge="the-constitution"
+  >
+    <p>
+      The constitution, also known as 'the law of the land', is a document that
+      establishes the federal government and its boundaries.<br />It contains a
+      Preamble, which states the purpose of the government. (it also has those
+      famous words, “We The People”)
+    </p>
+
+    <p class="mt-4">
+      The preamble is followed by 3 articles.<br />
+      Article 1 establishes the legislative branch, or Congress. (see <a
+        href="#the-branches-of-government"
+        class="hover:underline">"The Branches of Government"/Legislative</a
+      >)<br />
+      Article 2 establishes the executive branch, or the Presidency. (see <a
+        href="#the-branches-of-government"
+        class="hover:underline">"The Branches of Government"/Executive</a
+      >)<br />
+      Article 3 establishes the judicial branch, or the Supreme Court. (see <a
+        href="#the-branches-of-government"
+        class="hover:underline">"The Branches of Government"/Judicial</a
+      >)
+    </p>
+
+    <p class="mt-4">
+      The constitution has received many updates over its 240 year life, these
+      are called amendments and there is 27 of them, the first ten being part of
+      the Bill of Rights. (see <a
+        href="#the-bill-of-rights"
+        class="hover:underline">"The Bill of Rights"</a
+      >)
+    </p>
+
+    <p class="italic text-sm mt-4">
+      Many sources were used, including the National Constitution Center, and
+      the National Archives. (<a
+        href="https://constitutioncenter.org/the-constitution"
+        class="hover:underline"
+        >https://constitutioncenter.org/the-constitution</a
+      > & <a
+        href="https://www.archives.gov/founding-docs/constitution/what-does-it-say"
+        class="hover:underline"
+        >https://www.archives.gov/founding-docs/constitution/what-does-it-say</a
+      >)
+    </p>
+  </Section>
+</MainLayout>

@@ -1,0 +1,39 @@
+---
+interface Props {
+  one: {
+    on: "legislative" | "executive" | "judicial";
+    icon: "account_circle_off" | "edit" | "block" | "account_box" | "gavel";
+    action: string;
+  };
+  two: {
+    on: "legislative" | "executive" | "judicial";
+    icon: "account_circle_off" | "edit" | "block" | "account_box" | "gavel";
+    action: string;
+  };
+}
+
+function capFirst(s: string) {
+  if (s.length === 0) {
+    return "";
+  }
+  return s.charAt(0).toUpperCase() + s.slice(1);
+}
+
+const { one, two } = Astro.props;
+
+const onOne = capFirst(one.on);
+const onTwo = capFirst(two.on);
+---
+
+<div class="grid grid-cols-2 gap-2 text-black">
+  <div class="bg-white rounded-lg p-3">
+    <h3 class="font-bold text-3xl mb-2 text-center">On {onOne}</h3>
+    <img class="h-32 mx-auto" src={`/icons/${one.icon}.svg`} />
+    <h4 class="text-2xl text-center">{one.action}</h4>
+  </div>
+  <div class="bg-white rounded-lg p-3">
+    <h3 class="font-bold text-3xl mb-2 text-center">On {onTwo}</h3>
+    <img class="h-32 mx-auto" src={`/icons/${two.icon}.svg`} />
+    <h4 class="text-2xl text-center">{two.action}</h4>
+  </div>
+</div>
