@@ -8,6 +8,6 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
   },
-  site: 'https://astronaut.github.io',
+  site: 'https://valbuildr.github.io',
   base: '/civics-1.10-unit-1-assessment',
 });
